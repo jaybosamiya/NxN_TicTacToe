@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-const int N = 3;
+const int N = 4;
 
 #include "game.cpp"
 #include "alphabeta.cpp"
@@ -86,7 +86,7 @@ void humanTurn() {
 
 void computerTurn() {
 	Move move;
-	alpha_beta(100,MAX,board,-INF,INF,move);
+	alpha_beta(6,MAX,board,-INF,INF,move);
 	board = board.doMove(move);
 }
 

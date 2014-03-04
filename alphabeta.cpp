@@ -51,10 +51,10 @@ int alpha_beta(const int level, const bool player, const Board &board, int alpha
 				alpha = score; // We have found a better best move
 				move = *it;
 			}
-			// if ( alpha >= beta ) {
-			// 	move = *it;
-			// 	return alpha; // Beta Cut Off
-			// }
+			if ( alpha >= beta ) {
+				move = *it;
+				return alpha; // Beta Cut Off
+			}
 		}
 		return alpha; // This is our best move
 	} else {
@@ -66,10 +66,10 @@ int alpha_beta(const int level, const bool player, const Board &board, int alpha
 				beta = score; // Opponent has found a better worse move
 				move = *it;
 			}
-			// if ( alpha >= beta ) {
-			// 	move = *it;
-			// 	return beta; // Alpha Cut Off
-			// }
+			if ( alpha >= beta ) {
+				move = *it;
+				return beta; // Alpha Cut Off
+			}
 		}
 		return beta; // This is the opponent's best move
 	}
