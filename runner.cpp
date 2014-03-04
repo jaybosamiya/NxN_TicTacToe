@@ -31,6 +31,10 @@ void clearscreen() { // TODO: Rewrite to make it portable
 	system("cls");
 }
 
+void pausescreen() { // TODO: Rewrite to make it portable
+	system("pause>nul");
+}
+
 void playComputer();
 void playHuman();
 
@@ -41,7 +45,7 @@ void about() {
 	cout << "Can YOU beat it?\n\n";
 	cout << "\tCopyright 2014 Jay Hitesh Bosamiya, Palash Agrawal\n";
 	cout << "\t\tAll Rights Reserved\n";
-	
+
 }
 
 int main() {
@@ -59,7 +63,11 @@ int main() {
 		case 'A':
 			about();
 			break;
+		case 'E':
+			header();
+			cout << "Bye Bye!\n";
 	}
+	pausescreen();
 }
 
 Board board;
