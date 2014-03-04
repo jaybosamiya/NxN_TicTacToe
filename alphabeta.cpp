@@ -11,8 +11,8 @@ const int WINNER = 1<<30;
 const int LOSER = -WINNER;
 const int INF = 100000000;
 
-const bool MAX = true;
-const bool MIN = false;
+const bool MAX = false;
+const bool MIN = true;
 
 const int SCORER[] = {1,10,100,1000,10000,100000};
 
@@ -51,10 +51,10 @@ int alpha_beta(const int level, const bool player, const Board &board, int alpha
 				alpha = score; // We have found a better best move
 				move = *it;
 			}
-			if ( alpha >= beta ) {
-				move = *it;
-				return alpha; // Beta Cut Off
-			}
+			// if ( alpha >= beta ) {
+			// 	move = *it;
+			// 	return alpha; // Beta Cut Off
+			// }
 		}
 		return alpha; // This is our best move
 	} else {
@@ -66,10 +66,10 @@ int alpha_beta(const int level, const bool player, const Board &board, int alpha
 				beta = score; // Opponent has found a better worse move
 				move = *it;
 			}
-			if ( alpha >= beta ) {
-				move = *it;
-				return beta; // Alpha Cut Off
-			}
+			// if ( alpha >= beta ) {
+			// 	move = *it;
+			// 	return beta; // Alpha Cut Off
+			// }
 		}
 		return beta; // This is the opponent's best move
 	}
