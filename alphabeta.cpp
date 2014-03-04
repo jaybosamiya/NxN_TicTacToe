@@ -42,7 +42,7 @@ int alpha_beta(const int level, const bool player, const Board &board, int alpha
 
 	vector<Move> children = board.legalMoves();
 
-	random_shuffle(children.begin(),children.end());
+	random_shuffle(children.begin(),children.end()); // TODO: Change this to a smarter way of ordering the legal moves to promote faster pruning
 
 	if ( player == MAX ) {
 		for ( vector<Move>::iterator it = children.begin() ; it != children.end() ; it++ ) {
