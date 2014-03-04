@@ -79,6 +79,27 @@ void displayBoard() {
 	cout << board.toString() << endl;
 }
 
+void displayResult(){
+	int x = 0, o = 0;
+	for ( int i = 0 ; i < N ; i++ ) {
+		x = max(x,board.countRow(i,board.X));
+		x = max(x,board.countColumn(i,board.X));
+		o = max(o,board.countRow(i,board.O));
+		o = max(o,board.countColumn(i,board.O));
+	}
+	x = max(x,board.countDiag1(board.X));
+	x = max(x,board.countDiag2(board.X));
+	o = max(o,board.countDiag1(board.O));
+	o = max(o,board.countDiag2(board.O));
+	if ( x == N ) {
+		cout<<"X has won";
+	} else if ( o == N ) {
+		cout<<"O has won";
+	} else {
+		cout<<"Its a draw";
+	}
+}
+
 void humanTurn() {
 	int r, c;
 	Move move;
@@ -108,6 +129,7 @@ void playComputer() {
 		flag = !flag;
 	}
 	displayBoard();
+	displayResult();
 }
 
 void playHuman() {
@@ -116,4 +138,5 @@ void playHuman() {
 		humanTurn();
 	}
 	displayBoard();
+	displayResult();
 }
