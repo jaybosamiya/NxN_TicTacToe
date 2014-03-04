@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-const int DEPTH_OF_LOOK_AHEAD = 6;
+const int DEPTH_OF_LOOK_AHEAD = 7;
 const int N = 4;
 
 #include "game.cpp"
@@ -92,11 +92,11 @@ void displayResult(){
 	o = max(o,board.countDiag1(board.O));
 	o = max(o,board.countDiag2(board.O));
 	if ( x == N ) {
-		cout<<"X has won";
+		cout<<"\tPlayer 1 played better... X has won!!!\n";
 	} else if ( o == N ) {
-		cout<<"O has won";
+		cout<<"\tPlayer 2 played better... O has won!!!\n";
 	} else {
-		cout<<"Its a draw";
+		cout<<"\tBoth players are evenly matched... Its a draw!!!\n";
 	}
 }
 
@@ -121,7 +121,20 @@ void computerTurn() {
 }
 
 void playComputer() {
-	bool flag = true;
+	displayBoard();
+	char c;
+	bool flag;
+	do {
+		cout << "Do you want to start? [Y/N] ";
+		cin >> c;
+	} while ( c != 'Y' && c != 'N' );
+	if ( c == 'Y' ) {
+		flag = true;
+		MAX = false; MIN = true;
+	} else {
+		flag = false;
+		MAX = true; MIN = false;
+	}
 	while ( !board.isGameOver() ) {
 		displayBoard();
 		if ( flag ) humanTurn();

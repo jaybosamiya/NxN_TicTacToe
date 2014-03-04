@@ -11,8 +11,8 @@ const int WINNER = 1<<30;
 const int LOSER = -WINNER;
 const int INF = 100000000;
 
-const bool MAX = false;
-const bool MIN = true;
+bool MAX = false;
+bool MIN = true;
 
 const int SCORER[] = {1,10,100,1000,10000,100000};
 
