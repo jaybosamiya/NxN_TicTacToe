@@ -10,7 +10,7 @@ const int N = 4;
 using namespace std;
 
 void header() {
-	cout << "4x4 Tic Tac Toe\n";
+	cout << N << "x" << N << " Tic Tac Toe\n";
 	cout << "---------------\n\n";
 }
 
