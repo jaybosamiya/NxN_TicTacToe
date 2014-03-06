@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-const int DEPTH_OF_LOOK_AHEAD = 9;
+const int DEPTH_OF_LOOK_AHEAD = 11;
 const int N = 4;
 
 #include "game.cpp"
