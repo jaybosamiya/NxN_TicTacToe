@@ -34,6 +34,10 @@ int getScore(const Board &board) {
 	return score;
 }
 
+void permutator(vector<Move>::iterator l, vector<Move>::iterator r) {
+	random_shuffle(l,r); // TODO: Change this to a smarter way of ordering the legal moves to promote faster pruning
+}
+
 int alpha_beta(const int level, const bool player, const Board &board, int alpha, int beta, Move &move) {
 	if ( board.isGameOver() || level == 0 ) {
 		if ( !board.isGameOver() ) move = (board.legalMoves())[0];
@@ -42,7 +46,7 @@ int alpha_beta(const int level, const bool player, const Board &board, int alpha
 
 	vector<Move> children = board.legalMoves();
 
-	random_shuffle(children.begin(),children.end()); // TODO: Change this to a smarter way of ordering the legal moves to promote faster pruning
+	permutator(children.begin(),children.end());
 
 	if ( player == MAX ) {
 		for ( vector<Move>::iterator it = children.begin() ; it != children.end() ; it++ ) {
