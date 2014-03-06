@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-const int DEPTH_OF_LOOK_AHEAD = 11;
+const int DEPTH_OF_LOOK_AHEAD = 8;
 const int N = 4;
 
 #include "game.cpp"
@@ -127,7 +127,11 @@ void humanTurn() {
 
 void computerTurn() {
 	Move move;
-	alpha_beta(DEPTH_OF_LOOK_AHEAD,MAX,board,-INF,INF,move);
+	if ( displayCount == 2 ) {
+		move.set(3,3);
+	} else {
+		alpha_beta(DEPTH_OF_LOOK_AHEAD,MAX,board,-INF,INF,move);
+	}
 	board = board.doMove(move);
 	prevMove = move;
 }
