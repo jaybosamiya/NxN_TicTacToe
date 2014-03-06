@@ -135,7 +135,7 @@ void playComputer() {
 		flag = false;
 		MAX = true; MIN = false;
 	}
-	while ( !board.isGameOver() ) {
+	while ( !board.isGameOver() && !board.isDrawn() ) {
 		displayBoard();
 		if ( flag ) humanTurn();
 		else computerTurn();
@@ -146,7 +146,7 @@ void playComputer() {
 }
 
 void playHuman() {
-	while ( !board.isGameOver() ) {
+	while ( !board.isGameOver() && !board.isDrawn() ) {
 		displayBoard();
 		humanTurn();
 	}

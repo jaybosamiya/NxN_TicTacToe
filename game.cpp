@@ -102,6 +102,21 @@ public:
 		return ((temp == N) || (movesfinished == N*N));
 	}
 
+	bool isDrawn() const {
+		int temp = N;
+		for ( int i = 0 ; i < N ; i++ ) {
+			temp = min(countRow(i,X),temp);
+			temp = min(countRow(i,O),temp);
+			temp = min(countColumn(i,X),temp);
+			temp = min(countColumn(i,O),temp);
+		}
+		temp = min(temp,countDiag1(X));
+		temp = min(temp,countDiag1(O));
+		temp = min(temp,countDiag2(X));
+		temp = min(temp,countDiag2(O));
+		return ((temp != 0) || (movesfinished == N*N));
+	}
+
 	bool isLegal(const Move &move) const {
 		return ( mark[move.row][move.col] == EMPTY );
 	}
