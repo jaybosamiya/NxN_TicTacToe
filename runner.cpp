@@ -73,10 +73,20 @@ int main() {
 
 Board board;
 
+Move prevMove;
+
+int displayCount = 0;
+
 void displayBoard() {
 	clearscreen();
 	header();
 	cout << board.toString() << endl;
+	if ( displayCount >= 2 ) {
+		cout << "Previous move: " << prevMove.toString() << endl << endl;
+	} else {
+		cout << endl << endl;
+	}
+	displayCount++;
 }
 
 void displayResult(){
@@ -112,12 +122,14 @@ void humanTurn() {
 		} while ( !isMoveInRange );
 	} while ( !board.isLegal(move) );
 	board = board.doMove(move);
+	prevMove = move;
 }
 
 void computerTurn() {
 	Move move;
 	alpha_beta(DEPTH_OF_LOOK_AHEAD,MAX,board,-INF,INF,move);
 	board = board.doMove(move);
+	prevMove = move;
 }
 
 void playComputer() {

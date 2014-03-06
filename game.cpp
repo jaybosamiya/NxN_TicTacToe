@@ -26,6 +26,12 @@ public:
 			return true;
 		}
 	}
+
+	string toString() const {
+		stringstream ss;
+		ss << row << " " << col;
+		return ss.str();
+	}
 };
 
 class Board {
