@@ -162,6 +162,7 @@ void playComputer() {
 }
 
 void playHuman() {
+	displayCount++;
 	while ( !board.isGameOver() && !board.isDrawn() ) {
 		displayBoard();
 		humanTurn();
