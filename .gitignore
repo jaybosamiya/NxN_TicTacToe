@@ -1,3 +1,10 @@
+####################
+## Runner Specific
+####################
+
+# Ignore compiled executables
+runner*.exe
+
 #################
 ## Eclipse
 #################
